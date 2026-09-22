@@ -751,67 +751,7 @@ nav a:hover::after {
 
 
 /* =========================================================
-   PUBLICATIONS
-========================================================= */
-
-.publication-list {
-    width: min(92%, var(--max-width));
-    margin: auto;
-}
-
-.publication {
-    display: grid;
-
-    grid-template-columns: 100px 1fr;
-
-    gap: 35px;
-
-    padding: 38px 0;
-
-    border-top: 1px solid var(--border);
-}
-
-.publication:last-child {
-    border-bottom: 1px solid var(--border);
-}
-
-.publication-year {
-    font-family: monospace;
-
-    color: var(--accent);
-
-    font-size: 0.85rem;
-}
-
-.publication h3 {
-    font-size: 1.3rem;
-
-    letter-spacing: -0.02em;
-}
-
-.publication p {
-    max-width: 750px;
-
-    margin-top: 10px;
-
-    color: var(--text-light);
-}
-
-.text-link {
-    display: inline-block;
-
-    margin-top: 15px;
-
-    color: var(--accent);
-
-    font-size: 0.85rem;
-
-    font-weight: 600;
-
-    border-bottom: 1px solid var(--accent);
-}
-
-
+  
 /* =========================================================
    OPPORTUNITY SECTION
 ========================================================= */
@@ -1138,6 +1078,9 @@ footer {
         text-align: center;
     }
 }
+ PUBLICATIONS
+========================================================= */
+
 
 .publication-category {
     margin-bottom: 3.5rem;
@@ -1149,6 +1092,7 @@ footer {
     font-size: 1.15rem;
     font-weight: 600;
     color: var(--text);
+   width: min(92%, var(--max-width));
 }
 
 .publication {
@@ -1163,6 +1107,7 @@ footer {
     line-height: 1.55;
     font-weight: 600;
     color: var(--accent);
+    width: min(92%, var(--max-width));
 }
 
 .publication-authors {
@@ -1170,6 +1115,7 @@ footer {
     font-size: 0.9rem;
     line-height: 1.5;
     color: var(--text);
+    width: min(92%, var(--max-width));
 }
 
 .publication-venue {
@@ -1177,11 +1123,13 @@ footer {
     font-size: 0.87rem;
     line-height: 1.5;
     color: var(--text-soft);
+    width: min(92%, var(--max-width));
 }
 
 .publication-links {
     margin-top: 0.55rem;
     font-size: 0.82rem;
+    width: min(92%, var(--max-width));
 }
 
 .publication-links a {
