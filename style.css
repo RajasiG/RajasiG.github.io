@@ -759,12 +759,6 @@ nav a:hover::after {
     margin-bottom: 3.5rem;
     width: 100%;
     margin: auto;
-
-    display: grid;
-
-    grid-template-columns: 1.35fr 0.65fr;
-
-    gap: 100px;
 }
 
 .publication-category > h3 {
