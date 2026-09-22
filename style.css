@@ -5,28 +5,8 @@
    ========================================================= */
 
 :root {
-    --page-left-space: 16%;
-    --content-width: 1120px;
+/* ---------- Blues ---------- */ --blue-950: #163747; --blue-900: #1d4b61; --blue-800: #27627c; --blue-700: #347f9d; --blue-600: #4d9dbc; --blue-500: #72b6cf; --blue-300: #b9ddea; --blue-200: #d8eaf2; --blue-100: #eaf5f9; --blue-50: #f6fbfd; /* ---------- Yellow ---------- */ --yellow-500: #d9ad32; --yellow-400: #e8c451; --yellow-300: #f3d66f; --yellow-200: #f8e7a5; --yellow-100: #fff8dc; /* ---------- Neutrals ---------- */ --white: #ffffff; --text: #29404c; --text-light: #637983; --border: #d9e8ee; /* ---------- Effects ---------- */ --shadow: 0 10px 30px rgba(29, 75, 97, 0.08); --radius: 14px; }
 
-    --blue-50: #f4f9fc;
-    --blue-100: #e8f3f9;
-    --blue-200: #cfe8f3;
-    --blue-300: #a9d5e7;
-    --blue-500: #4f9fc1;
-    --blue-600: #357f9f;
-    --blue-700: #28647f;
-    --blue-900: #183f52;
-
-    --yellow-100: #fff8d9;
-    --yellow-200: #ffefad;
-    --yellow-300: #f9dc72;
-    --yellow-500: #e7b93c;
-
-    --white: #ffffff;
-    --text: #243746;
-    --text-light: #617481;
-    --border: #dce9ef;
-}
 
 
 /* =========================================================
@@ -34,7 +14,7 @@
    ========================================================= */
 
 body {
-    margin: 0;
+    margin: 10;
 
     font-family:
         Inter,
