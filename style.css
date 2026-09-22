@@ -751,7 +751,71 @@ nav a:hover::after {
 
 
 /* =========================================================
-  
+   PUBLICATIONS
+========================================================= */
+
+
+.publication-category {
+    margin-bottom: 3.5rem;
+    width: 100%;
+}
+
+.publication-category > h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+   width: min(92%, var(--max-width));
+}
+
+.publication {
+    padding: 1.35rem 0;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+    max-width: none;
+}
+
+.publication h4 {
+    margin: 0 0 0.45rem;
+    font-size: 1rem;
+    line-height: 1.55;
+    font-weight: 600;
+    color: var(--accent);
+    width: min(92%, var(--max-width));
+}
+
+.publication-authors {
+    margin: 0 0 0.25rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text);
+    width: min(92%, var(--max-width));
+}
+
+.publication-venue {
+    margin: 0;
+    font-size: 0.87rem;
+    line-height: 1.5;
+    color: var(--text-soft);
+    width: min(92%, var(--max-width));
+}
+
+.publication-links {
+    margin-top: 0.55rem;
+    font-size: 0.82rem;
+    width: min(92%, var(--max-width));
+}
+
+.publication-links a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.publication-links a:hover {
+    color: var(--accent-dark);
+    text-decoration: underline;
+}
 /* =========================================================
    OPPORTUNITY SECTION
 ========================================================= */
@@ -1078,70 +1142,7 @@ footer {
         text-align: center;
     }
 }
- PUBLICATIONS
-========================================================= */
 
-
-.publication-category {
-    margin-bottom: 3.5rem;
-    width: min(92%, var(--max-width));
-}
-
-.publication-category > h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--text);
-   width: min(92%, var(--max-width));
-}
-
-.publication {
-    padding: 1.35rem 0;
-    border-bottom: 1px solid var(--border);
-    width: min(92%, var(--max-width));
-}
-
-.publication h4 {
-    margin: 0 0 0.45rem;
-    font-size: 1rem;
-    line-height: 1.55;
-    font-weight: 600;
-    color: var(--accent);
-    width: min(92%, var(--max-width));
-}
-
-.publication-authors {
-    margin: 0 0 0.25rem;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: var(--text);
-    width: min(92%, var(--max-width));
-}
-
-.publication-venue {
-    margin: 0;
-    font-size: 0.87rem;
-    line-height: 1.5;
-    color: var(--text-soft);
-    width: min(92%, var(--max-width));
-}
-
-.publication-links {
-    margin-top: 0.55rem;
-    font-size: 0.82rem;
-    width: min(92%, var(--max-width));
-}
-
-.publication-links a {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.publication-links a:hover {
-    color: var(--accent-dark);
-    text-decoration: underline;
-}
 /* =========================================================
    ACCESSIBILITY
 ========================================================= */
