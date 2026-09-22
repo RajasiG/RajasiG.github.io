@@ -758,6 +758,13 @@ nav a:hover::after {
 .publication-category {
     margin-bottom: 3.5rem;
     width: 100%;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1.35fr 0.65fr;
+
+    gap: 100px;
 }
 
 .publication-category > h3 {
@@ -773,6 +780,13 @@ nav a:hover::after {
     border-bottom: 1px solid var(--border);
     width: 100%;
     max-width: none;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1.35fr 0.65fr;
+
+    gap: 100px;
 }
 
 .publication h4 {
@@ -782,6 +796,13 @@ nav a:hover::after {
     font-weight: 600;
     color: var(--accent);
     width: min(92%, var(--max-width));
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1.35fr 0.65fr;
+
+    gap: 100px;
 }
 
 .publication-authors {
