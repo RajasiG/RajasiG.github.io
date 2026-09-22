@@ -52,19 +52,21 @@ ul {
 ========================================================= */
 
 :root {
+    --background: #F7F8FA;
+   --background-alt: #EEF2F5;
+   
+   --text: #20252A;
+   --text-light: #626B73;
+   
+   --border: #D9DEE2;
+   
+   --accent: #315A7D;
+   --accent-dark: #23445F;
+   
+   --highlight: #D6A62C;
+   
+   --white: #FFFFFF;
 
-    --background: #f7f7f4;
-    --background-alt: #eeeee9;
-
-    --text: #202321;
-    --text-light: #626862;
-
-    --border: #d9dbd5;
-
-    --accent: #286B6B;
-    --accent-dark: #1E5151;
-
-    --white: #ffffff;
 
     --max-width: 1180px;
 
