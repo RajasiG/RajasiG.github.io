@@ -1,1048 +1,976 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description"
-        content="Rajasi Gore — researcher and builder working across AI, edge computing, data systems, and human-centered intelligent tools.">
+    <title>Rajasi Gore | Research Software & AI</title>
 
-  <title>Rajasi Gore — Researcher & Builder</title>
+    <meta
+        name="description"
+        content="Rajasi Gore — Early-career researcher and research software developer working across AI, data systems, edge computing, and scientific software."
+    >
 
-  <style>
-    /* =========================================================
-       RAJASI GORE — PERSONAL RESEARCH PORTFOLIO
-       One-file website: no external libraries required.
-       ========================================================= */
-
-    :root {
-      --ink: #151515;
-      --paper: #f4f1ea;
-      --paper-2: #ebe7de;
-      --card: #faf9f5;
-      --line: #d7d1c6;
-      --muted: #69665f;
-      --accent: #d65a36;
-      --accent-dark: #9f321b;
-      --green: #38594a;
-      --serif: Georgia, "Times New Roman", serif;
-      --sans: Inter, ui-sans-serif, system-ui, -apple-system,
-              BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --max: 1180px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      color: var(--ink);
-      background: var(--paper);
-      font-family: var(--sans);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    ::selection {
-      color: white;
-      background: var(--accent);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .wrap {
-      width: min(90%, var(--max));
-      margin: 0 auto;
-    }
-
-    /* ---------- Navigation ---------- */
-
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 20;
-      padding: 20px 0;
-      transition: 0.25s ease;
-    }
-
-    .nav.scrolled {
-      background: rgba(244, 241, 234, 0.92);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--line);
-      padding: 13px 0;
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .brand {
-      font-family: var(--serif);
-      font-size: 1.35rem;
-      font-weight: 700;
-    }
-
-    .menu {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-      font-size: 0.84rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .menu a {
-      position: relative;
-    }
-
-    .menu a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      width: 0;
-      height: 1px;
-      background: var(--accent);
-      transition: width 0.2s ease;
-    }
-
-    .menu a:hover::after {
-      width: 100%;
-    }
-
-    /* ---------- Hero ---------- */
-
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      align-items: center;
-      position: relative;
-      padding: 150px 0 90px;
-    }
-
-    .hero::before {
-      content: "AI";
-      position: absolute;
-      right: -0.04em;
-      top: 10%;
-      font-size: min(35vw, 470px);
-      line-height: 1;
-      font-weight: 900;
-      color: rgba(214, 90, 54, 0.055);
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      align-items: end;
-      gap: 70px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .kicker {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--accent-dark);
-      font-size: 0.75rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 24px;
-    }
-
-    .kicker::before {
-      content: "";
-      width: 36px;
-      height: 2px;
-      background: var(--accent);
-    }
-
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(4.3rem, 9vw, 9.3rem);
-      line-height: 0.83;
-      letter-spacing: -0.075em;
-      font-weight: 700;
-      max-width: 900px;
-    }
-
-    .hero h1 em {
-      color: var(--accent);
-      font-style: normal;
-    }
-
-    .hero-summary {
-      max-width: 450px;
-      color: var(--muted);
-      font-size: 1.06rem;
-      margin-bottom: 28px;
-    }
-
-    .hero-note {
-      border-left: 2px solid var(--accent);
-      padding-left: 18px;
-      max-width: 460px;
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      line-height: 1.45;
-    }
-
-    .scroll-mark {
-      position: absolute;
-      bottom: 34px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      animation: float 2s infinite ease-in-out;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate(-50%, 0); }
-      50% { transform: translate(-50%, 7px); }
-    }
-
-    /* ---------- General section ---------- */
-
-    section {
-      padding: 120px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .section-label {
-      color: var(--accent-dark);
-      text-transform: uppercase;
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      font-weight: 800;
-      margin-bottom: 15px;
-    }
-
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(2.7rem, 5vw, 5rem);
-      line-height: 0.98;
-      letter-spacing: -0.045em;
-      max-width: 850px;
-      margin-bottom: 50px;
-    }
-
-    /* ---------- Intro ---------- */
-
-    .intro {
-      background: var(--ink);
-      color: #f8f5ee;
-      border-top: 0;
-    }
-
-    .intro .section-label {
-      color: #e98263;
-    }
-
-    .intro-grid {
-      display: grid;
-      grid-template-columns: 0.7fr 1.3fr;
-      gap: 90px;
-      align-items: start;
-    }
-
-    .intro-big {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 4vw, 3.6rem);
-      line-height: 1.08;
-      letter-spacing: -0.035em;
-    }
-
-    .intro-copy {
-      color: #c9c5bc;
-      font-size: 1.08rem;
-      max-width: 680px;
-    }
-
-    .intro-copy p + p {
-      margin-top: 22px;
-    }
-
-    .signature {
-      margin-top: 38px;
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1.8rem;
-      color: #f2c6b8;
-    }
-
-    /* ---------- Journey ---------- */
-
-    .journey {
-      display: grid;
-      grid-template-columns: 0.35fr 1.65fr;
-      gap: 70px;
-    }
-
-    .journey-list {
-      border-top: 1px solid var(--line);
-    }
-
-    .journey-item {
-      display: grid;
-      grid-template-columns: 145px 1fr;
-      gap: 30px;
-      padding: 27px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .journey-year {
-      color: var(--accent-dark);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-    }
-
-    .journey-item h3 {
-      font-family: var(--serif);
-      font-size: 1.65rem;
-      margin-bottom: 5px;
-    }
-
-    .journey-item p {
-      color: var(--muted);
-      max-width: 700px;
-    }
-
-    /* ---------- Projects ---------- */
-
-    .projects {
-      background: var(--paper-2);
-    }
-
-    .project-list {
-      border-top: 1px solid var(--ink);
-    }
-
-    .project {
-      display: grid;
-      grid-template-columns: 90px 1fr 1fr;
-      gap: 35px;
-      align-items: start;
-      padding: 42px 0;
-      border-bottom: 1px solid var(--line);
-      transition: 0.25s ease;
-    }
-
-    .project:hover {
-      padding-left: 12px;
-      padding-right: 12px;
-      background: rgba(255, 255, 255, 0.35);
-    }
-
-    .project-number {
-      color: var(--accent);
-      font-family: var(--serif);
-      font-size: 1.25rem;
-    }
-
-    .project h3 {
-      font-family: var(--serif);
-      font-size: clamp(2rem, 3.3vw, 3.2rem);
-      line-height: 0.95;
-      letter-spacing: -0.035em;
-    }
-
-    .project-description {
-      color: var(--muted);
-      max-width: 510px;
-    }
-
-    .project-description p {
-      margin-bottom: 17px;
-    }
-
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--accent-dark);
-      font-size: 0.78rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .project-link span {
-      transition: transform 0.2s ease;
-    }
-
-    .project:hover .project-link span {
-      transform: translateX(5px);
-    }
-
-    /* ---------- Research map ---------- */
-
-    .research-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      border-top: 1px solid var(--line);
-      border-left: 1px solid var(--line);
-    }
-
-    .research-card {
-      min-height: 240px;
-      padding: 34px;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .research-card .number {
-      color: var(--accent);
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      margin-bottom: 35px;
-    }
-
-    .research-card h3 {
-      font-family: var(--serif);
-      font-size: 2rem;
-      margin-bottom: 8px;
-    }
-
-    .research-card p {
-      color: var(--muted);
-      max-width: 450px;
-    }
-
-    /* ---------- Skills ---------- */
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      max-width: 950px;
-    }
-
-    .skill {
-      border: 1px solid var(--line);
-      border-radius: 100px;
-      padding: 9px 15px;
-      background: var(--card);
-      font-size: 0.84rem;
-    }
-
-    .skill:hover {
-      border-color: var(--accent);
-      color: var(--accent-dark);
-    }
-
-    /* ---------- Contact ---------- */
-
-    .contact {
-      background: var(--green);
-      color: #f6f3eb;
-      border-top: 0;
-      text-align: center;
-    }
-
-    .contact .section-label {
-      color: #e8b29f;
-    }
-
-    .contact h2 {
-      font-family: var(--serif);
-      font-size: clamp(3.2rem, 7vw, 7rem);
-      line-height: 0.88;
-      letter-spacing: -0.06em;
-      max-width: 900px;
-      margin: 0 auto 30px;
-    }
-
-    .contact p {
-      color: #cbd1c8;
-      max-width: 570px;
-      margin: 0 auto 35px;
-    }
-
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .contact-button {
-      display: inline-block;
-      padding: 13px 20px;
-      border: 1px solid rgba(255,255,255,0.28);
-      border-radius: 100px;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      transition: 0.2s ease;
-    }
-
-    .contact-button:hover {
-      background: #f6f3eb;
-      color: var(--green);
-      border-color: #f6f3eb;
-    }
-
-    /* ---------- Footer ---------- */
-
-    footer {
-      background: var(--green);
-      color: #aeb8ad;
-      padding: 25px 0 35px;
-      font-size: 0.78rem;
-    }
-
-    .footer-line {
-      border-top: 1px solid rgba(255,255,255,0.15);
-      padding-top: 18px;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    /* ---------- Responsive ---------- */
-
-    @media (max-width: 850px) {
-      .menu {
-        display: none;
-      }
-
-      .hero-grid,
-      .intro-grid,
-      .journey {
-        grid-template-columns: 1fr;
-        gap: 45px;
-      }
-
-      .hero {
-        min-height: auto;
-        padding-top: 145px;
-        padding-bottom: 120px;
-      }
-
-      .hero h1 {
-        font-size: clamp(4rem, 17vw, 7rem);
-      }
-
-      .hero::before {
-        top: 30%;
-      }
-
-      .journey-item {
-        grid-template-columns: 90px 1fr;
-      }
-
-      .project {
-        grid-template-columns: 55px 1fr;
-        gap: 20px;
-      }
-
-      .project-description {
-        grid-column: 2;
-      }
-
-      .research-grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 80px 0;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .wrap {
-        width: 88%;
-      }
-
-      .hero h1 {
-        font-size: 4.25rem;
-      }
-
-      .journey-item {
-        grid-template-columns: 1fr;
-        gap: 7px;
-      }
-
-      .project {
-        grid-template-columns: 1fr;
-      }
-
-      .project-description {
-        grid-column: auto;
-      }
-
-      .footer-line {
-        flex-direction: column;
-      }
-    }
-  </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- ========================= NAVIGATION ========================= -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
-  <nav class="nav" id="nav">
-    <div class="wrap nav-inner">
-      <a href="#" class="brand">Rajasi Gore</a>
+<header class="navbar">
+    <div class="nav-container">
 
-      <ul class="menu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#journey">Journey</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#contact">Connect</a></li>
-      </ul>
-    </div>
-  </nav>
+        <a href="#home" class="logo">
+            RG
+        </a>
 
-
-  <!-- ========================= HERO ========================= -->
-
-  <header class="hero">
-    <div class="wrap hero-grid">
-
-      <div>
-        <div class="kicker">Researcher · Builder · Computer Scientist</div>
-
-        <h1>
-          Building<br>
-          <em>intelligent</em><br>
-          systems.
-        </h1>
-      </div>
-
-      <div>
-        <p class="hero-summary">
-          I work where artificial intelligence meets real-world computing —
-          turning research ideas into systems that people can actually use.
-        </p>
-
-        <p class="hero-note">
-          “My work sits at the intersection of AI, edge computing,
-          data systems, and human-centered technology.”
-        </p>
-      </div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#research">Research</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#publications">Publications</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
     </div>
-
-    <div class="scroll-mark">Scroll to explore ↓</div>
-  </header>
+</header>
 
 
-  <main>
+<!-- =========================
+     HERO
+========================= -->
 
-    <!-- ========================= ABOUT ========================= -->
+<main>
 
-    <section class="intro" id="about">
-      <div class="wrap intro-grid">
+<section id="home" class="hero">
+
+    <div class="hero-container">
+
+        <div class="hero-text">
+
+            <p class="eyebrow">
+                EARLY-CAREER RESEARCHER • RESEARCH SOFTWARE • AI
+            </p>
+
+            <h1>
+                Building software for
+                <span>research and real-world data.</span>
+            </h1>
+
+            <p class="hero-description">
+                I am a researcher and research software developer working
+                at the intersection of artificial intelligence, data systems,
+                edge computing, and scientific workflows.
+            </p>
+
+            <p class="hero-description">
+                My goal is to build reliable, usable software that helps
+                researchers collect data, run experiments, analyze results,
+                and translate research ideas into working systems.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="button primary">
+                    Explore my work
+                </a>
+
+                <a href="resume.pdf" class="button secondary" target="_blank">
+                    View Resume
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="status-dot"></div>
+
+            <p class="card-label">
+                CURRENTLY
+            </p>
+
+            <h3>
+                Research Software<br>
+                & AI Opportunities
+            </h3>
+
+            <p>
+                Open to early-career roles involving research software,
+                scientific computing, AI/ML, data engineering, and
+                research infrastructure.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about" class="section">
+
+    <div class="section-header">
+
+        <p class="section-number">01</p>
 
         <div>
-          <div class="section-label">01 — About</div>
+            <p class="section-label">ABOUT</p>
 
-          <div class="intro-big">
-            Research should not end at the paper.
-          </div>
+            <h2>
+                Researcher first.
+                <br>
+                Software builder always.
+            </h2>
         </div>
 
-        <div class="intro-copy">
-
-          <p>
-            I am a Postdoctoral Researcher at the University of Tennessee,
-            Knoxville, working across artificial intelligence, distributed
-            computing, edge systems, and human-computer interaction.
-          </p>
-
-          <p>
-            I enjoy taking a problem from the messy real world, understanding
-            the data and people involved, designing the computational system,
-            and eventually putting that system on a device, platform, or
-            workflow where it can make a difference.
-          </p>
-
-          <p>
-            My projects have included AI assistants for programming education,
-            machine learning for unobtrusive gait analysis, IoT systems for
-            smart public infrastructure, and distributed data-processing
-            systems.
-          </p>
-
-          <div class="signature">Rajasi</div>
-
-        </div>
-      </div>
-    </section>
+    </div>
 
 
-    <!-- ========================= JOURNEY ========================= -->
+    <div class="about-grid">
 
-    <section id="journey">
-      <div class="wrap">
+        <div class="about-main">
 
-        <div class="section-label">02 — Journey</div>
-
-        <h2 class="section-title">
-          From connected devices to intelligent assistants.
-        </h2>
-
-        <div class="journey">
-
-          <div>
-            <p style="color: var(--muted);">
-              A research journey across systems, sensing, machine learning,
-              and human-centered AI.
+            <p class="large-text">
+                My background combines computer science research with
+                hands-on development of data-intensive and AI-enabled
+                systems.
             </p>
-          </div>
 
-          <div class="journey-list">
+            <p>
+                I have worked on projects involving edge computing,
+                machine learning, IoT sensing, scientific data pipelines,
+                distributed systems, and AI-assisted software.
+            </p>
 
-            <article class="journey-item">
-              <div class="journey-year">2015 — 2017</div>
-              <div>
-                <h3>Networks & Autonomous Systems</h3>
-                <p>
-                  Graduate research in advanced networks and path planning
-                  for underwater autonomous systems.
-                </p>
-              </div>
-            </article>
+            <p>
+                During my doctoral and postdoctoral research, I have
+                contributed to systems from the data-collection layer
+                through model development, deployment, experimentation,
+                and analysis.
+            </p>
 
-            <article class="journey-item">
-              <div class="journey-year">2017 — 2024</div>
-              <div>
-                <h3>IoT, Edge Computing & Ph.D.</h3>
-                <p>
-                  Research on edge-based monitoring, IoT sensing, machine
-                  learning, and intelligent public infrastructure.
-                </p>
-              </div>
-            </article>
+            <p>
+                I am particularly interested in research software roles
+                where software engineering supports scientific discovery
+                and reproducible research.
+            </p>
 
-            <article class="journey-item">
-              <div class="journey-year">2024 — 2025</div>
-              <div>
-                <h3>Machine Learning at the Edge</h3>
-                <p>
-                  Developed real-time gait-analysis systems using sensors,
-                  deep learning, Raspberry Pi, and Jetson platforms.
-                </p>
-              </div>
-            </article>
-
-            <article class="journey-item">
-              <div class="journey-year">2025 — Present</div>
-              <div>
-                <h3>Generative AI & Scientific Computing</h3>
-                <p>
-                  Building AI-assisted tools and data-intensive workflows
-                  for education, research, and scientific computing.
-                </p>
-              </div>
-            </article>
-
-          </div>
         </div>
-      </div>
-    </section>
 
 
-    <!-- ========================= PROJECTS ========================= -->
+        <div class="about-facts">
 
-    <section class="projects" id="work">
-      <div class="wrap">
+            <div class="fact">
+                <span>Background</span>
+                <strong>Computer Science</strong>
+            </div>
 
-        <div class="section-label">03 — Selected Work</div>
+            <div class="fact">
+                <span>Focus</span>
+                <strong>Research Software & AI</strong>
+            </div>
 
-        <h2 class="section-title">
-          Problems I have enjoyed solving.
-        </h2>
+            <div class="fact">
+                <span>Experience</span>
+                <strong>Academic Research</strong>
+            </div>
 
-        <div class="project-list">
+            <div class="fact">
+                <span>Location</span>
+                <strong>Knoxville, Tennessee</strong>
+            </div>
 
-          <article class="project">
-            <div class="project-number">01</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     RESEARCH
+========================= -->
+
+<section id="research" class="section section-alt">
+
+    <div class="section-header">
+
+        <p class="section-number">02</p>
+
+        <div>
+            <p class="section-label">RESEARCH</p>
+
+            <h2>
+                From research questions
+                <br>
+                to working systems.
+            </h2>
+        </div>
+
+    </div>
+
+
+    <div class="research-grid">
+
+        <article class="research-card">
+
+            <span class="research-icon">01</span>
+
+            <h3>
+                AI & Machine Learning
+            </h3>
+
+            <p>
+                Developing machine learning and deep learning systems
+                for prediction, analysis, intelligent assistance,
+                and scientific applications.
+            </p>
+
+        </article>
+
+
+        <article class="research-card">
+
+            <span class="research-icon">02</span>
+
+            <h3>
+                Research Software
+            </h3>
+
+            <p>
+                Building software tools, APIs, workflows, and experimental
+                infrastructure that make research systems easier to use,
+                evaluate, and reproduce.
+            </p>
+
+        </article>
+
+
+        <article class="research-card">
+
+            <span class="research-icon">03</span>
+
+            <h3>
+                Data & Distributed Systems
+            </h3>
+
+            <p>
+                Working with large datasets, distributed computing,
+                databases, cloud resources, and data-processing pipelines.
+            </p>
+
+        </article>
+
+
+        <article class="research-card">
+
+            <span class="research-icon">04</span>
+
+            <h3>
+                Edge & IoT Computing
+            </h3>
+
+            <p>
+                Designing systems that connect sensors, edge devices,
+                machine learning models, and cloud services for
+                real-world data collection.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EXPERIENCE
+========================= -->
+
+<section id="experience" class="section">
+
+    <div class="section-header">
+
+        <p class="section-number">03</p>
+
+        <div>
+            <p class="section-label">EXPERIENCE</p>
+
+            <h2>
+                Research experience
+                <br>
+                with practical software work.
+            </h2>
+        </div>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <!-- Current position -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-date">
+                2025 — Present
+            </div>
+
+            <div class="timeline-content">
+
+                <p class="role-type">
+                    POSTDOCTORAL RESEARCHER
+                </p>
+
+                <h3>
+                    University of Tennessee, Knoxville
+                </h3>
+
+                <p>
+                    Research involving AI-assisted software, data-intensive
+                    workflows, research computing, and experimental systems.
+                </p>
+
+                <ul>
+                    <li>
+                        Develop software and infrastructure for research
+                        experiments.
+                    </li>
+
+                    <li>
+                        Work with Python, APIs, AI models, databases,
+                        containers, and cloud/HPC environments.
+                    </li>
+
+                    <li>
+                        Analyze interaction and experimental data to
+                        evaluate research systems.
+                    </li>
+
+                    <li>
+                        Collaborate with researchers and students on
+                        research software and AI projects.
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- Research Associate -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-date">
+                2024 — 2025
+            </div>
+
+            <div class="timeline-content">
+
+                <p class="role-type">
+                    RESEARCH ASSOCIATE
+                </p>
+
+                <h3>
+                    University of Tennessee, Knoxville
+                </h3>
+
+                <p>
+                    Developed machine learning and edge-computing systems
+                    for unobtrusive sensing and human movement analysis.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Developed deep learning models using PyTorch for
+                        gait and biomechanics analysis.
+                    </li>
+
+                    <li>
+                        Worked with IMU and vibration-based sensing data.
+                    </li>
+
+                    <li>
+                        Deployed trained models on Raspberry Pi and
+                        NVIDIA Jetson devices.
+                    </li>
+
+                    <li>
+                        Investigated heterogeneous biomedical datasets
+                        for machine learning applications.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- PhD -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-date">
+                2017 — 2024
+            </div>
+
+            <div class="timeline-content">
+
+                <p class="role-type">
+                    PHD RESEARCHER
+                </p>
+
+                <h3>
+                    MNNIT Allahabad
+                </h3>
+
+                <p>
+                    Research in edge computing, IoT, machine learning,
+                    distributed systems, and smart monitoring.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Designed an edge-based framework for smart
+                        monitoring of public restrooms.
+                    </li>
+
+                    <li>
+                        Built IoT sensing and data-processing systems.
+                    </li>
+
+                    <li>
+                        Developed machine learning components for
+                        intelligent decision-making.
+                    </li>
+
+                    <li>
+                        Worked with Raspberry Pi, Docker, Spark,
+                        Cassandra, and sensor platforms.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<section id="projects" class="section section-alt">
+
+    <div class="section-header">
+
+        <p class="section-number">04</p>
+
+        <div>
+            <p class="section-label">SELECTED PROJECTS</p>
+
+            <h2>
+                Software built
+                <br>
+                for research.
+            </h2>
+        </div>
+
+    </div>
+
+
+    <div class="projects-grid">
+
+
+        <!-- PegasusAI -->
+
+        <article class="project-card featured">
+
+            <div class="project-top">
+
+                <span class="project-tag">
+                    RESEARCH SOFTWARE
+                </span>
+
+                <span class="project-number">
+                    01
+                </span>
+
+            </div>
+
+            <h3>
+                PegasusAI
+            </h3>
+
+            <p class="project-description">
+                An AI-assisted research and learning system integrated
+                with JupyterLab to provide context-aware assistance
+                during computational workflows.
+            </p>
+
+            <div class="project-details">
+
+                <span>Python</span>
+                <span>FastAPI</span>
+                <span>JupyterLab</span>
+                <span>OpenAI</span>
+                <span>MongoDB</span>
+                <span>Docker</span>
+
+            </div>
+
+            <p class="project-note">
+                Research focus: AI-assisted programming, human-AI
+                interaction, help-seeking behavior, and experimental
+                evaluation.
+            </p>
+
+        </article>
+
+
+        <!-- VibRun -->
+
+        <article class="project-card">
+
+            <div class="project-top">
+
+                <span class="project-tag">
+                    EDGE AI
+                </span>
+
+                <span class="project-number">
+                    02
+                </span>
+
+            </div>
+
+            <h3>
+                VibRun
+            </h3>
+
+            <p class="project-description">
+                A real-time, unobtrusive gait analysis system using
+                treadmill footstep vibrations and machine learning.
+            </p>
+
+            <div class="project-details">
+
+                <span>PyTorch</span>
+                <span>Transformers</span>
+                <span>IMU</span>
+                <span>Raspberry Pi</span>
+                <span>Jetson</span>
+
+            </div>
+
+        </article>
+
+
+        <!-- Smart Sanitation -->
+
+        <article class="project-card">
+
+            <div class="project-top">
+
+                <span class="project-tag">
+                    IOT + DATA
+                </span>
+
+                <span class="project-number">
+                    03
+                </span>
+
+            </div>
+
+            <h3>
+                Smart Monitoring System
+            </h3>
+
+            <p class="project-description">
+                An IoT and edge-computing platform for monitoring
+                environmental conditions and supporting intelligent
+                maintenance decisions.
+            </p>
+
+            <div class="project-details">
+
+                <span>IoT</span>
+                <span>Raspberry Pi</span>
+                <span>Spark</span>
+                <span>Cassandra</span>
+                <span>Docker</span>
+
+            </div>
+
+        </article>
+
+
+        <!-- Research infrastructure -->
+
+        <article class="project-card">
+
+            <div class="project-top">
+
+                <span class="project-tag">
+                    DATA SYSTEMS
+                </span>
+
+                <span class="project-number">
+                    04
+                </span>
+
+            </div>
+
+            <h3>
+                Research Data Workflows
+            </h3>
+
+            <p class="project-description">
+                Data processing and experimental infrastructure for
+                reproducible research involving distributed computing,
+                databases, machine learning, and cloud resources.
+            </p>
+
+            <div class="project-details">
+
+                <span>Python</span>
+                <span>SQL</span>
+                <span>Spark</span>
+                <span>Hadoop</span>
+                <span>Cloud</span>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section id="skills" class="section">
+
+    <div class="section-header">
+
+        <p class="section-number">05</p>
+
+        <div>
+            <p class="section-label">TECHNICAL SKILLS</p>
+
+            <h2>
+                Tools I use
+                <br>
+                to build research systems.
+            </h2>
+        </div>
+
+    </div>
+
+
+    <div class="skills-container">
+
+        <div class="skill-group">
+
+            <h3>
+                Programming
+            </h3>
+
+            <p>
+                Python · C/C++ · SQL · TypeScript
+            </p>
+
+        </div>
+
+
+        <div class="skill-group">
+
+            <h3>
+                AI / ML
+            </h3>
+
+            <p>
+                PyTorch · TensorFlow · Keras · scikit-learn
+                · Transformers · Generative AI
+            </p>
+
+        </div>
+
+
+        <div class="skill-group">
+
+            <h3>
+                Data Systems
+            </h3>
+
+            <p>
+                PostgreSQL · MySQL · MongoDB · Cassandra
+                · Hadoop · Apache Spark
+            </p>
+
+        </div>
+
+
+        <div class="skill-group">
+
+            <h3>
+                Software Engineering
+            </h3>
+
+            <p>
+                FastAPI · Flask · Docker · Kubernetes
+                · REST APIs · Git
+            </p>
+
+        </div>
+
+
+        <div class="skill-group">
+
+            <h3>
+                Research Computing
+            </h3>
+
+            <p>
+                Cloud Computing · HPC · Distributed Systems
+                · Jupyter · Scientific Workflows
+            </p>
+
+        </div>
+
+
+        <div class="skill-group">
+
+            <h3>
+                Edge & IoT
+            </h3>
+
+            <p>
+                Raspberry Pi · NVIDIA Jetson · Arduino
+                · MQTT · CoAP · Sensors
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PUBLICATIONS
+========================= -->
+
+<section id="publications" class="section section-alt">
+
+    <div class="section-header">
+
+        <p class="section-number">06</p>
+
+        <div>
+            <p class="section-label">PUBLICATIONS</p>
+
+            <h2>
+                Research contributions
+                <br>
+                and scholarly work.
+            </h2>
+        </div>
+
+    </div>
+
+
+    <div class="publication-list">
+
+        <article class="publication">
+
+            <span class="publication-year">
+                2023
+            </span>
 
             <div>
-              <h3>PegasusAI</h3>
+
+                <h3>
+                    Research on Edge-Based Smart Monitoring
+                </h3>
+
+                <p>
+                    Work exploring edge computing, IoT sensing,
+                    intelligent monitoring, and machine learning
+                    for smart public infrastructure.
+                </p>
+
+                <a href="#" class="text-link">
+                    View publication →
+                </a>
+
             </div>
 
-            <div class="project-description">
-              <p>
-                An AI assistant integrated into JupyterLab that provides
-                cell-specific guidance and debugging support for programming
-                and data analytics education.
-              </p>
-
-              <a class="project-link" href="#">
-                Explore project <span>→</span>
-              </a>
-            </div>
-          </article>
+        </article>
 
 
-          <article class="project">
-            <div class="project-number">02</div>
+        <article class="publication">
+
+            <span class="publication-year">
+                2024+
+            </span>
 
             <div>
-              <h3>VibRun</h3>
+
+                <h3>
+                    Ongoing Research in AI & Research Software
+                </h3>
+
+                <p>
+                    Current work spans AI-assisted programming,
+                    machine learning, research workflows,
+                    edge AI, and data-intensive systems.
+                </p>
+
             </div>
 
-            <div class="project-description">
-              <p>
-                A real-time, unobtrusive gait-analysis system that uses
-                footstep vibrations and deep learning to infer running
-                biomechanics.
-              </p>
+        </article>
 
-              <a class="project-link" href="#">
-                Explore project <span>→</span>
-              </a>
-            </div>
-          </article>
+    </div>
+
+</section>
 
 
-          <article class="project">
-            <div class="project-number">03</div>
+<!-- =========================
+     WHAT I AM LOOKING FOR
+========================= -->
 
-            <div>
-              <h3>Smart Infrastructure</h3>
-            </div>
+<section class="opportunity-section">
 
-            <div class="project-description">
-              <p>
-                An edge-based IoT framework combining environmental sensing,
-                user feedback, machine learning, and intelligent maintenance
-                decisions.
-              </p>
+    <div class="opportunity-container">
 
-              <a class="project-link" href="#">
-                Explore project <span>→</span>
-              </a>
-            </div>
-          </article>
-
-
-          <article class="project">
-            <div class="project-number">04</div>
-
-            <div>
-              <h3>Data Systems</h3>
-            </div>
-
-            <div class="project-description">
-              <p>
-                Distributed data-processing workflows using Spark, Cassandra,
-                MongoDB, containers, cloud infrastructure, and scientific
-                computing platforms.
-              </p>
-
-              <a class="project-link" href="#">
-                Explore project <span>→</span>
-              </a>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ========================= RESEARCH ========================= -->
-
-    <section id="research">
-      <div class="wrap">
-
-        <div class="section-label">04 — Research Map</div>
-
-        <h2 class="section-title">
-          Four questions guide my work.
-        </h2>
-
-        <div class="research-grid">
-
-          <article class="research-card">
-            <div class="number">01</div>
-            <h3>How can AI help?</h3>
-            <p>
-              Designing useful generative-AI systems that support people
-              without removing human reasoning from the process.
-            </p>
-          </article>
-
-          <article class="research-card">
-            <div class="number">02</div>
-            <h3>Where should AI run?</h3>
-            <p>
-              Exploring edge and distributed architectures that bring
-              computation closer to data, devices, and users.
-            </p>
-          </article>
-
-          <article class="research-card">
-            <div class="number">03</div>
-            <h3>How do we build it?</h3>
-            <p>
-              Combining machine learning with robust data pipelines,
-              APIs, containers, monitoring, and reproducible workflows.
-            </p>
-          </article>
-
-          <article class="research-card">
-            <div class="number">04</div>
-            <h3>Who benefits?</h3>
-            <p>
-              Keeping usability, human behavior, learning, and real-world
-              constraints central to technical system design.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ========================= TOOLS ========================= -->
-
-    <section>
-      <div class="wrap">
-
-        <div class="section-label">05 — Toolbox</div>
-
-        <h2 class="section-title">
-          Technologies I like to build with.
-        </h2>
-
-        <div class="skills">
-          <span class="skill">Python</span>
-          <span class="skill">C / C++</span>
-          <span class="skill">SQL</span>
-          <span class="skill">PyTorch</span>
-          <span class="skill">TensorFlow</span>
-          <span class="skill">scikit-learn</span>
-          <span class="skill">Generative AI</span>
-          <span class="skill">Prompt Engineering</span>
-          <span class="skill">JupyterLab</span>
-          <span class="skill">FastAPI</span>
-          <span class="skill">Flask</span>
-          <span class="skill">Docker</span>
-          <span class="skill">Kubernetes</span>
-          <span class="skill">Apache Spark</span>
-          <span class="skill">MongoDB</span>
-          <span class="skill">Cassandra</span>
-          <span class="skill">PostgreSQL</span>
-          <span class="skill">Raspberry Pi</span>
-          <span class="skill">NVIDIA Jetson</span>
-          <span class="skill">IoT</span>
-          <span class="skill">Edge Computing</span>
-          <span class="skill">HPC</span>
-          <span class="skill">MLOps</span>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- ========================= CONTACT ========================= -->
-
-    <section class="contact" id="contact">
-      <div class="wrap">
-
-        <div class="section-label">06 — Connect</div>
+        <p class="section-label">
+            NEXT STEP
+        </p>
 
         <h2>
-          Have a problem worth building for?
+            Looking for a place where
+            research and software meet.
         </h2>
 
         <p>
-          I am interested in research collaborations, intelligent systems,
-          AI-assisted software, data-intensive computing, and opportunities
-          to turn challenging ideas into working systems.
+            I am currently exploring early-career opportunities in
+            research software engineering, scientific computing,
+            research computing, AI/ML engineering, data engineering,
+            and research-oriented software development.
         </p>
+
+        <p>
+            I am especially interested in teams where I can continue
+            growing as a software engineer while contributing to
+            meaningful research and technical projects.
+        </p>
+
+        <a href="#contact" class="button primary">
+            Let's connect
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact" class="section contact-section">
+
+    <div class="contact-container">
+
+        <p class="section-label">
+            CONTACT
+        </p>
+
+        <h2>
+            Interested in research,
+            software, or collaboration?
+        </h2>
+
+        <p>
+            I would be happy to connect about research software,
+            AI/ML, scientific computing, or research opportunities.
+        </p>
+
 
         <div class="contact-links">
 
-          <a class="contact-button" href="mailto:YOUR_EMAIL@example.com">
-            Email
-          </a>
+            <a href="mailto:your-email@example.com">
+                Email
+            </a>
 
-          <a
-            class="contact-button"
-            href="https://www.linkedin.com/in/rajasi-gore-ph-d-aa059016a/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
+            <a
+                href="https://linkedin.com/in/rajasi-gore-ph-d-aa059016a/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                LinkedIn
+            </a>
 
-          <a
-            class="contact-button"
-            href="https://github.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
+            <a
+                href="https://github.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub
+            </a>
 
-          <a class="contact-button" href="YOUR_CV.pdf">
-            CV
-          </a>
+            <a href="resume.pdf" target="_blank">
+                Resume
+            </a>
 
         </div>
 
-      </div>
-    </section>
-
-  </main>
-
-
-  <!-- ========================= FOOTER ========================= -->
-
-  <footer>
-    <div class="wrap footer-line">
-      <span>© 2026 Rajasi Gore</span>
-      <span>Research · AI · Edge · Data</span>
     </div>
-  </footer>
+
+</section>
+
+</main>
 
 
-  <script>
-    // Add a subtle background to the navigation after scrolling.
-    const nav = document.getElementById("nav");
+<!-- =========================
+     FOOTER
+========================= -->
 
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 30) {
-        nav.classList.add("scrolled");
-      } else {
-        nav.classList.remove("scrolled");
-      }
-    });
-  </script>
+<footer>
+
+    <p>
+        © 2026 Rajasi Gore
+    </p>
+
+    <p>
+        Research Software · AI · Data Systems
+    </p>
+
+</footer>
+
 
 </body>
 </html>
