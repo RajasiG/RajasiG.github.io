@@ -757,10 +757,10 @@ nav a:hover::after {
 
 .publication-category {
     width: 100%;
-    margin: auto;
 }
 
 .publication-category > h3 {
+    margin: auto;
     font-size: 1.15rem;
     font-weight: 600;
     color: var(--text);
@@ -768,6 +768,7 @@ nav a:hover::after {
 }
 
 .publication {
+    margin: auto;
     border-bottom: 1px solid var(--border);
     width: 100%;
     max-width: none;
@@ -783,6 +784,7 @@ nav a:hover::after {
 }
 
 .publication-authors {
+    margin: auto;
     font-size: 0.9rem;
     line-height: 1.5;
     color: var(--text);
@@ -790,6 +792,7 @@ nav a:hover::after {
 }
 
 .publication-venue {
+    margin: auto;
     font-size: 0.87rem;
     line-height: 1.5;
     color: var(--text-soft);
@@ -797,17 +800,20 @@ nav a:hover::after {
 }
 
 .publication-links {
+    margin: auto;
     font-size: 0.82rem;
     width: min(92%, var(--max-width));
 }
 
 .publication-links a {
+    margin: auto;
     color: var(--accent);
     text-decoration: none;
     font-weight: 600;
 }
 
 .publication-links a:hover {
+    margin: auto;
     color: var(--accent-dark);
     text-decoration: underline;
 }
